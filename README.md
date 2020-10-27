@@ -35,7 +35,6 @@ void* codeXStatus(void* h, void* msg, void* wparam, void* lparam)
 }
 
 
-
 void programStop(void* h)
 {
 	putMessage(h, (void*)MAKELONG(DISABLE     , XSOCKET),  0,0);
