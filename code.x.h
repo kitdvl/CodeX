@@ -196,16 +196,34 @@ enum
 
 
 
-
-
-
-
-
-
-
-
-
-
+#define  E_FAIL                                0xE0000000
+#define  E_FAIL                                0xE0000001
+#define  E_NULL                                0xEFFFFFFF
+#define  E_IO_ERROR                            0xE0000010
+#define  E_READING                             0x0000101B
+#define  E_READ_COMPLETE                       0x0000101A
+#define  E_READ_FAIL                           0x0000101F
+#define  E_WRITEING                            0x0000100B
+#define  E_WRITE_COMPLETE                      0x0000100A
+#define  E_WRITE_FAIL                          0x0000100F
+#define  E_IO_BUFFER_PTR                       0xE00010B0
+#define  E_IO_CLOSEING                         0xE000FDFB
+#define  E_IO_CLOSE_COMPLETE                   0xE000FDFA
+#define  E_IO_CLOSE_FAIL                       0xE000FDFF
+#define  E_IO_OPENING                          0xE000FD0B
+#define  E_IO_OPEN_COMPLETE                    0xE000FD0A
+#define  E_IO_OPEN_FAIL                        0xE000FD0F
+#define  E_IO_REMOTE_CONNECTING                0xE000FD1B
+#define  E_IO_REMOTE_CONNECT_COMPLETE          0xE000FD1A
+#define  E_IO_REMOTE_CONNECT_FAIL              0xE000FD1F
+#define  E_CLIENT_CONNECTING                   0xE000FDCB
+#define  E_CLIENT_CONNECT_COMPLETE             0xE000FDCA
+#define  E_CLIENT_CONNECT_FAIL                 0xE000FDCF
+#define  E_CLIENT_BUFFER_PTR                   0xE000BF0B
+#define  E_ENCODEING                           0xE000ECDB
+#define  E_ENCODE_COMPLETE                     0xE000ECDA
+#define  E_DECODEING                           0xE000DCDB
+#define  E_DECODE_COMPLETE                     0xE000DCDA
 
 
 
