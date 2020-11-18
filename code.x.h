@@ -30,6 +30,7 @@
 #define HIBYTE(w)          ((w&0xFF00)>>8)
 #endif
 
+#define CODEX                0xFFFF
 #define SYSTEM_STATUS        0xFFFF
 #define SYSTEM_VERSION       0xFFFE
 /// <summary>
@@ -195,8 +196,8 @@ enum
 
 
 
-
-#define  E_FAIL                                0xE0000000
+#define  E_NORMAL                              0
+#define  E_ABNORMAL                            0xE0000000
 #define  E_FAIL                                0xE0000001
 #define  E_NULL                                0xEFFFFFFF
 #define  E_IO_ERROR                            0xE0000010
@@ -226,7 +227,35 @@ enum
 #define  E_DECODE_COMPLETE                     0xE000DCDA
 
 
+#define  E_ABNORMAL_STATUS                     0xEA000001
 
+#define  E_ARIA_KEY_NULL                       0xECA10001
+#define  E_ARIA_KEY_SIZE                       0xECA10002
+#define  E_ARIA_IV_NULL                        0xECA10003
+#define  E_ARIA_IV_SIZE                        0xECA10004
+#define  E_ARIA_CTR_NULL                       0xECA10005
+#define  E_ARIA_CTR_SIZE                       0xECA10006
+
+#define  E_LEA_KEY_NULL                        0xECA20001
+#define  E_LEA_KEY_SIZE                        0xECA20002
+#define  E_LEA_IV_NULL                         0xECA20003
+#define  E_LEA_IV_SIZE                         0xECA20004
+#define  E_LEA_CTR_NULL                        0xECA20005
+#define  E_LEA_CTR_SIZE                        0xECA20006
+
+#define  E_SEED_KEY_NULL                       0xECA30001
+#define  E_SEED_KEY_SIZE                       0xECA30002
+#define  E_SEED_IV_NULL                        0xECA30003
+#define  E_SEED_IV_SIZE                        0xECA30004
+#define  E_SEED_CTR_NULL                       0xECA30005
+#define  E_SEED_CTR_SIZE                       0xECA30006
+
+#define  E_HIGHT_KEY_NULL                      0xECA40001
+#define  E_HIGHT_KEY_SIZE                      0xECA40002
+#define  E_HIGHT_IV_NULL                       0xECA40003
+#define  E_HIGHT_IV_SIZE                       0xECA40004
+#define  E_HIGHT_CTR_NULL                      0xECA40005
+#define  E_HIGHT_CTR_SIZE                      0xECA40006
 
 
 
