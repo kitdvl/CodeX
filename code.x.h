@@ -228,6 +228,8 @@ enum
 
 
 #define  E_ABNORMAL_STATUS                     0xEA000001
+#define  E_CRITICAL_ERROR                      0xEA000002
+
 
 #define  E_ARIA_KEY_NULL                       0xECA10001
 #define  E_ARIA_KEY_SIZE                       0xECA10002
@@ -256,6 +258,8 @@ enum
 #define  E_HIGHT_IV_SIZE                       0xECA40004
 #define  E_HIGHT_CTR_NULL                      0xECA40005
 #define  E_HIGHT_CTR_SIZE                      0xECA40006
+
+
 
 
 
