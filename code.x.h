@@ -47,7 +47,7 @@ enum
   SIFR_LSH512,
   SIFR_SHA256,
   SIFR_DRBG,
-  SIFR_HMAC,
+  SIFR_HMAC_SHA256,
   MAX_SIFR,
   ENTIRE_SIFR = MAX_SIFR,
 };
@@ -73,13 +73,13 @@ enum
   SIFR_PARAM_USE_INTERNAL_NONCE,
   SIFR_PARAM_USE_INTERNAL_ENTROPY_0,
   SIFR_PARAM_USE_INTERNAL_ENTROPY_1,
+  SIFR_PARAM_CLEAR,
   MAX_SIFR_PARAMETER,
 };
 
 enum
 {
 	SIFR_STATUS = MAX_SIFR_PARAMETER,
-  SIFR_CLEAR,
   ECB_ENCODE,
   CBC_ENCODE,
   CFB_ENCODE,
@@ -99,6 +99,7 @@ enum
   GENERATE,
   GENERATE_WITH_DF,
   SELF_CHECK,
+  SELF_KAT_CHECK,
   MAX_SIFR_STATUS,
   ENTIRE_SIFR_STATUS = MAX_SIFR_STATUS,
 };
@@ -197,8 +198,8 @@ enum
 
 
 #define  E_NORMAL                              0
+#define  E_SUCCESS                             E_NORMAL
 #define  E_ABNORMAL                            0xE0000000
-#define  E_FAIL                                0xE0000001
 #define  E_NULL                                0xEFFFFFFF
 #define  E_IO_ERROR                            0xE0000010
 #define  E_READING                             0x0000101B
@@ -228,6 +229,8 @@ enum
 
 
 #define  E_ABNORMAL_STATUS                     0xEA000001
+#define  E_CRITICAL_ERROR                      0xEA000002
+
 
 #define  E_ARIA_KEY_NULL                       0xECA10001
 #define  E_ARIA_KEY_SIZE                       0xECA10002
@@ -256,6 +259,8 @@ enum
 #define  E_HIGHT_IV_SIZE                       0xECA40004
 #define  E_HIGHT_CTR_NULL                      0xECA40005
 #define  E_HIGHT_CTR_SIZE                      0xECA40006
+
+
 
 
 
