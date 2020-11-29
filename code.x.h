@@ -33,6 +33,7 @@
 #define CODEX                0xFFFF
 #define SYSTEM_STATUS        0xFFFF
 #define SYSTEM_VERSION       0xFFFE
+#define SYSTEM_CALLBACK      0xFFFD
 /// <summary>
 /// MSG HIWORD SYSTEM & SIFR
 /// </summary>
