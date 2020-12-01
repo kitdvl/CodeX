@@ -144,6 +144,7 @@ enum
   XM_DELAY_0,
   XM_DELAY_1,
   XM_DELAY_2,
+  XM_TIMEOUT,
 	XM_CONFIG,
   XM_IP,
   XM_IFNAME,
