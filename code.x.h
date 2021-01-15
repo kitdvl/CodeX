@@ -36,6 +36,7 @@
 #define SYSTEM_CALLBACK      0xFFFD
 #define SYSTEM_CLEAR         0xFFFC
 #define SYSTEM_LIBRARY       0xFFFB
+#define XML_INFO             0xEFFF
 /// <summary>
 /// MSG HIWORD SYSTEM & SIFR
 /// </summary>
