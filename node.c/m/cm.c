@@ -158,6 +158,12 @@ void* codeXCallback(void* h, void* m, void* w, void* l)
 			}
 		}
 		break;
+
+
+	default:
+		if ( *(p->psm+i[HIWORD((uint32_t)m)])->Callback ) ((p->psm+i[HIWORD((uint32_t)m)])->Callback)((p->psm+i[HIWORD((uint32_t)m)])->obj,m,w,l);
+		if ( *(p->psm+i[HIWORD((uint32_t)m)])->iohandler[1] != 0 ) e = 0xE0000001;
+		break;
 	}
 
 	return (void*)e;
