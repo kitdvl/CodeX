@@ -1,0 +1,1 @@
+@copy /Y out\*.exe                              ..\..\..\codeX\
