@@ -31,11 +31,13 @@
 #endif
 
 #define CODEX                0xFFFF
+
 #define SYSTEM_STATUS        0xFFFF
 #define SYSTEM_VERSION       0xFFFE
 #define SYSTEM_CALLBACK      0xFFFD
 #define SYSTEM_CLEAR         0xFFFC
 #define SYSTEM_LIBRARY       0xFFFB
+
 #define XML_INFO             0xEFFF
 /// <summary>
 /// MSG HIWORD SYSTEM & SIFR
@@ -176,7 +178,6 @@ enum
   XM_ESP,
   XM_COUNT,
   XM_BUFFER_PTR,
-  XM_BUFFER_SZ,
   XM_CLEAR,
   XM_USR,
   MAX_XMODULE_PARAMETER
@@ -208,6 +209,7 @@ enum
 	READING,
 	WRITING,
   COMPLETE,
+  REFERENCE,
   ASYNC_START,
   ASYNC_STOP,
   MAX_XM_STATUS
