@@ -25,7 +25,7 @@
 #define delay(a)  Sleep(a)
 #endif
 #if defined LINUX
-#define delay(a)  usleep(a)
+#define delay(a)  usleep(a*1000)
 #endif
 
 
