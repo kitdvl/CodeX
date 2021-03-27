@@ -165,6 +165,7 @@ enum
   XM_URI,
   XM_HOME,
   XM_INDEX,
+  XM_MAX_FD,
   XM_DESC,
   XM_BAUDRATE,
   XM_DATABIT,
