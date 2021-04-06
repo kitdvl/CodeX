@@ -44,6 +44,46 @@
 /************************************   **************************************/
 /************************************* ***************************************/
 /*****************************************************************************/
+enum
+{
+  ICODE_CALLBACK_CONNECTED = 0,
+  ICODE_CALLBACK_DISCONNECTED,
+  ICODE_CALLBACK_READ,
+  ICODE_CALLBACK_READFROM,
+  ICODE_CALLBACK
+};
+
+
+#if defined WIN32
+#pragma pack(1)
+#endif
+typedef struct
+#if defined LINUX
+__attribute__((packed))
+#endif
+{
+  int32_t   a[4];  // fd sz  bp  fdp
+} iCodeFDSET;
+#if defined WIN32
+#pragma pack()
+#endif
+
+
+#if defined WIN32
+#pragma pack(1)
+#endif
+typedef struct
+#if defined LINUX
+__attribute__((packed))
+#endif
+{
+  int32_t max;
+  iCodeFDSET* fds;
+} iCodeFDSETs;
+#if defined WIN32
+#pragma pack()
+#endif
+
 #if defined XWIN32
 #pragma pack(1)
 #endif
@@ -54,7 +94,8 @@ __attribute__((packed))
 {
   void* h;
   void* o;
-  int32_t (*callback[3])(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+  int32_t (*callback[ICODE_CALLBACK])(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+  iCodeFDSETs fdsets;
 } iCode;
 #if defined XWIN32
 #pragma pack()
