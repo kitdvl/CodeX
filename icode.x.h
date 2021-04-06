@@ -95,6 +95,8 @@ __attribute__((packed))
   void* h;
   void* o;
   int32_t (*callback[ICODE_CALLBACK])(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+  void* (*log)(int8_t* pfx, const int8_t* fmt,...);
+
   iCodeFDSETs fdsets;
 } iCode;
 #if defined XWIN32
