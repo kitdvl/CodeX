@@ -50,7 +50,13 @@ enum
   ICODE_CALLBACK_DISCONNECTED,
   ICODE_CALLBACK_READ,
   ICODE_CALLBACK_READFROM,
-  ICODE_CALLBACK
+  ICODE_CALLBACK_CGI_POST,
+  ICODE_CALLBACK_CGI_GET,
+  ICODE_CALLBACK,
+  ICODE_WRITE,
+  ICODE_FD,
+  ICODE_FDSET,
+  ICODE_FUNCTIONS,
 };
 
 
@@ -63,7 +69,7 @@ __attribute__((packed))
 #endif
 {
   int32_t   a[4];  // fd sz  bp  fdp
-} iCodeFDSET;
+} __iCodeFDSET;
 #if defined WIN32
 #pragma pack()
 #endif
@@ -78,8 +84,8 @@ __attribute__((packed))
 #endif
 {
   int32_t max;
-  iCodeFDSET* fds;
-} iCodeFDSETs;
+  __iCodeFDSET* fds;
+} iCodeFDSET;
 #if defined WIN32
 #pragma pack()
 #endif
@@ -97,7 +103,7 @@ __attribute__((packed))
   int32_t (*callback[ICODE_CALLBACK])(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
   void* (*log)(int8_t* pfx, const int8_t* fmt,...);
 
-  iCodeFDSETs fdsets;
+  iCodeFDSET fdset;
 } iCode;
 #if defined XWIN32
 #pragma pack()
@@ -125,6 +131,22 @@ __attribute__((packed))
 /************************************   **************************************/
 /************************************* ***************************************/
 /*****************************************************************************/
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __socket_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __socket_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
 #if defined __cplusplus
 extern "C"
 #endif
@@ -201,6 +223,22 @@ extern "C"
 #if defined WIN32 || defined WINCE
 __declspec(dllexport)
 #endif
+int32_t __http_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __http_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
 int32_t __http_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
 
 
@@ -250,6 +288,22 @@ int32_t __http_close(void** h);
 /************************************   **************************************/
 /************************************* ***************************************/
 /*****************************************************************************/
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __httpd_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __httpd_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
 #if defined __cplusplus
 extern "C"
 #endif
@@ -311,6 +365,22 @@ extern "C"
 #if defined WIN32 || defined WINCE
 __declspec(dllexport)
 #endif
+int32_t __ws_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __ws_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
 int32_t __ws_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
 
 
@@ -359,6 +429,14 @@ int32_t __ws_close(void** h);
 /************************************   **************************************/
 /************************************* ***************************************/
 /*****************************************************************************/
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined WIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __serial_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
 #if defined __cplusplus
 extern "C"
 #endif
