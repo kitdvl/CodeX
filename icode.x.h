@@ -60,7 +60,7 @@ enum
 };
 
 
-#if defined WIN32
+#if defined XWIN32
 #pragma pack(1)
 #endif
 typedef struct
@@ -70,12 +70,12 @@ __attribute__((packed))
 {
   int32_t   a[4];  // fd sz  bp  fdp
 } __iCodeFDSET;
-#if defined WIN32
+#if defined XWIN32
 #pragma pack()
 #endif
 
 
-#if defined WIN32
+#if defined XWIN32
 #pragma pack(1)
 #endif
 typedef struct
@@ -86,7 +86,7 @@ __attribute__((packed))
   int32_t max;
   __iCodeFDSET* fds;
 } iCodeFDSET;
-#if defined WIN32
+#if defined XWIN32
 #pragma pack()
 #endif
 
@@ -134,7 +134,7 @@ __attribute__((packed))
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -142,7 +142,7 @@ int32_t __socket_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, 
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -150,7 +150,7 @@ int32_t __socket_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinf
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -159,7 +159,7 @@ int32_t __socket_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_readfrom(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -168,7 +168,7 @@ int32_t __socket_readfrom(void* h, int32_t fd, int8_t* b, int32_t sz, void* more
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -176,7 +176,7 @@ int32_t __socket_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinf
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_writeto(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -184,7 +184,7 @@ int32_t __socket_writeto(void* h, int32_t fd, int8_t* b, int32_t sz, void* morei
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
@@ -192,7 +192,7 @@ int32_t __socket_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __socket_close(void** h);
@@ -220,7 +220,7 @@ int32_t __socket_close(void** h);
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __http_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -228,7 +228,7 @@ int32_t __http_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, vo
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __http_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -236,7 +236,7 @@ int32_t __http_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo,
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __http_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -245,7 +245,7 @@ int32_t __http_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, 
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __http_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -254,7 +254,7 @@ int32_t __http_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo,
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __http_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
@@ -262,7 +262,7 @@ int32_t __http_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __http_close(void** h);
@@ -291,7 +291,7 @@ int32_t __http_close(void** h);
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __httpd_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -299,7 +299,7 @@ int32_t __httpd_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, v
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __httpd_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -307,7 +307,7 @@ int32_t __httpd_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __httpd_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -316,7 +316,7 @@ int32_t __httpd_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo,
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __httpd_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -325,7 +325,7 @@ int32_t __httpd_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __httpd_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
@@ -333,7 +333,7 @@ int32_t __httpd_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __httpd_close(void** h);
@@ -362,7 +362,7 @@ int32_t __httpd_close(void** h);
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __ws_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -370,7 +370,7 @@ int32_t __ws_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __ws_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -378,7 +378,7 @@ int32_t __ws_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, v
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __ws_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -387,7 +387,7 @@ int32_t __ws_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, vo
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __ws_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -395,7 +395,7 @@ int32_t __ws_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, v
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __ws_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
@@ -403,7 +403,7 @@ int32_t __ws_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,i
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __ws_close(void** h);
@@ -432,7 +432,7 @@ int32_t __ws_close(void** h);
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __serial_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -440,7 +440,7 @@ int32_t __serial_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, 
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __serial_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -449,7 +449,7 @@ int32_t __serial_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __serial_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
@@ -457,7 +457,7 @@ int32_t __serial_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinf
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __serial_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
@@ -465,7 +465,7 @@ int32_t __serial_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_
 #if defined __cplusplus
 extern "C"
 #endif
-#if defined WIN32 || defined WINCE
+#if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
 int32_t __serial_close(void** h);
