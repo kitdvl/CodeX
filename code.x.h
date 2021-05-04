@@ -36,12 +36,9 @@
 #define SYSTEM_VERSION       0xFFFE
 #define SYSTEM_CALLBACK      0xFFFD
 #define SYSTEM_CLEAR         0xFFFC
-#define SYSTEM_LIBRARY       0xFFFB
+#define SYSTEM_AUTHOR        0xFFFB
 #define SYSTEM_AUTHOR        0xFFFA
 #define SYSTEM_MODULENAME    0xFFF9
-#define SYSTEM_SECRET_KEY_0  0xFFF8
-#define SYSTEM_SECRET_KEY_1  0xFFF7
-#define VECTOR_PATH          0xFFF6
 
 /// <summary>
 /// MSG HIWORD SYSTEM & SIFR
