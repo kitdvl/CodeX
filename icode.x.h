@@ -23,6 +23,13 @@
 #ifndef __ICODE_X_H_F2DBDC40_6196_4E67_A689_D31A9310BEC0__
 #define __ICODE_X_H_F2DBDC40_6196_4E67_A689_D31A9310BEC0__
 #include <stdint.h>
+#if __SSL_TLS__
+#include <openssl/crypto.h>
+#include <openssl/x509.h>
+#include <openssl/pem.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -55,6 +62,7 @@ enum
   ICODE_CALLBACK_SSL_TLS,
   ICODE_CALLBACK_SSL_TLS_READ,
   ICODE_CALLBACK_SSL_TLS_WRITE,
+  ICODE_CALLBACK_PRE_OPEN,
   ICODE_CALLBACK,
   ICODE_WRITE,
   ICODE_FD,

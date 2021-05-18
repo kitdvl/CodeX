@@ -48,17 +48,11 @@ extern "C" {
 # ifndef OPENSSL_NO_AUTOLOAD_CONFIG
 #  define OPENSSL_NO_AUTOLOAD_CONFIG
 # endif
-# ifndef OPENSSL_NO_CAPIENG
-#  define OPENSSL_NO_CAPIENG
-# endif
 # ifndef OPENSSL_NO_CRYPTO_MDEBUG
 #  define OPENSSL_NO_CRYPTO_MDEBUG
 # endif
 # ifndef OPENSSL_NO_CRYPTO_MDEBUG_BACKTRACE
 #  define OPENSSL_NO_CRYPTO_MDEBUG_BACKTRACE
-# endif
-# ifndef OPENSSL_NO_DEPRECATED
-#  define OPENSSL_NO_DEPRECATED
 # endif
 # ifndef OPENSSL_NO_DEVCRYPTOENG
 #  define OPENSSL_NO_DEVCRYPTOENG
@@ -68,9 +62,6 @@ extern "C" {
 # endif
 # ifndef OPENSSL_NO_EGD
 #  define OPENSSL_NO_EGD
-# endif
-# ifndef OPENSSL_NO_ENGINE
-#  define OPENSSL_NO_ENGINE
 # endif
 # ifndef OPENSSL_NO_EXTERNAL_TESTS
 #  define OPENSSL_NO_EXTERNAL_TESTS
@@ -96,9 +87,6 @@ extern "C" {
 # ifndef OPENSSL_NO_MSAN
 #  define OPENSSL_NO_MSAN
 # endif
-# ifndef OPENSSL_NO_PADLOCKENG
-#  define OPENSSL_NO_PADLOCKENG
-# endif
 # ifndef OPENSSL_NO_RC4
 #  define OPENSSL_NO_RC4
 # endif
@@ -107,9 +95,6 @@ extern "C" {
 # endif
 # ifndef OPENSSL_NO_SCTP
 #  define OPENSSL_NO_SCTP
-# endif
-# ifndef OPENSSL_NO_SRP
-#  define OPENSSL_NO_SRP
 # endif
 # ifndef OPENSSL_NO_SSL_TRACE
 #  define OPENSSL_NO_SSL_TRACE
@@ -141,7 +126,7 @@ extern "C" {
 
 
 /* Generate 80386 code? */
-# define I386_ONLY
+# undef I386_ONLY
 
 /*
  * The following are cipher-specific, but are part of the public API.
