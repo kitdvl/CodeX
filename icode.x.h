@@ -70,6 +70,10 @@ enum
   ICODE_FUNCTIONS,
 };
 
+#define DEBUG 1
+
+
+
 
 #if defined XWIN32
 #pragma pack(1)
@@ -376,7 +380,7 @@ extern "C"
 #if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
-int32_t __https_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+int32_t __httpsd_fd(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
 
 #if defined __cplusplus
 extern "C"
@@ -384,7 +388,7 @@ extern "C"
 #if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
-int32_t __https_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+int32_t __httpsd_fdset(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
 
 #if defined __cplusplus
 extern "C"
@@ -392,16 +396,7 @@ extern "C"
 #if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
-int32_t __https_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
-
-
-#if defined __cplusplus
-extern "C"
-#endif
-#if defined XWIN32 || defined WINCE
-__declspec(dllexport)
-#endif
-int32_t __https_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+int32_t __httpsd_read(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
 
 
 #if defined __cplusplus
@@ -410,7 +405,8 @@ extern "C"
 #if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
-int32_t __https_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
+int32_t __httpsd_write(void* h, int32_t fd, int8_t* b, int32_t sz, void* moreinfo, void* o);
+
 
 #if defined __cplusplus
 extern "C"
@@ -418,7 +414,15 @@ extern "C"
 #if defined XWIN32 || defined WINCE
 __declspec(dllexport)
 #endif
-int32_t __https_close(void** h);
+int32_t __httpsd_open(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int32_t,void*,void*), void* o);
+
+#if defined __cplusplus
+extern "C"
+#endif
+#if defined XWIN32 || defined WINCE
+__declspec(dllexport)
+#endif
+int32_t __httpsd_close(void** h);
 #endif
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
