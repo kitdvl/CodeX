@@ -79,6 +79,9 @@ extern "C" {
 #ifndef OPENSSL_NO_EGD
 # define OPENSSL_NO_EGD
 #endif
+#ifndef OPENSSL_NO_ERR
+# define OPENSSL_NO_ERR
+#endif
 #ifndef OPENSSL_NO_EXTERNAL_TESTS
 # define OPENSSL_NO_EXTERNAL_TESTS
 #endif
@@ -200,7 +203,7 @@ extern "C" {
 #endif
 
 /* Generate 80386 code? */
-#define I386_ONLY
+#undef I386_ONLY
 
 #undef OPENSSL_UNISTD
 #define OPENSSL_UNISTD <unistd.h>
