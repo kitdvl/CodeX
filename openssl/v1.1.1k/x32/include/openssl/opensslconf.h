@@ -25,6 +25,9 @@ extern "C" {
  */
 
 #define OPENSSL_MIN_API 0x10100000L
+#ifndef OPENSSL_NO_COMP
+# define OPENSSL_NO_COMP
+#endif
 #ifndef OPENSSL_NO_IDEA
 # define OPENSSL_NO_IDEA
 #endif
