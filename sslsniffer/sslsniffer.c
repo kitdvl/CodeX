@@ -141,6 +141,13 @@ main (int argc, char **argv)
     struct sockaddr_in serv_addr; /* proxy server address */
     int sock;                     /* our socket handler */
     argv_params argv_p;
+    #if defined LINUX
+    signal(SIGPIPE, SIG_IGN);
+    #endif
+    #if ( defined XWIN32 || defined WINCE )
+    WSADATA wsaData;
+    WSAStartup(0x202, &wsaData);
+    #endif
 
     /* get all the params first */
     if(PopulateArgvParams(&argv_p, argc, argv) < 0)
