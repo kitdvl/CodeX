@@ -1,0 +1,160 @@
+SSLsniffer.
+----------------------------------------------
+Written by: Eu-Jin Goh (eujin@cs.stanford.edu)
+            Stanford University April 2001
+ 
+----------------- GNU Public License -----------
+Copyright (C) 2001  Eu-Jin Goh
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
+USA.
+
+INSTALLATION:
+-------------
+
+First type 'tar zxvf sslsniffer-1_2.tar.gz' to extract the files.
+Just use the Makefile. You might have to change the paths of the
+headers and libraries for openSSL.
+
+USAGE:
+-----
+
+sslsniffer [-p <local port>] [-np <remote port> <remote hostname/ip>]
+
+-p <local port>
+
+specifies which port the sslsniffer will listen to on the local
+machine.
+
+-np <remote port> <remote hostname/ip>
+
+no means no proxy which means that the CONNECT message is not
+sent. Instead the remote host name (it also accepts numerical ip
+addresses) and the remote port number is specified.
+
+If not options are given, the sslsniffer listens on the default port
+8888 and assumes that a CONNECT message will be sent as the first
+packet.
+
+----------------------------------------------------------------
+
+PROGRAM NOTES:
+
+Version 1.21
+------------
+
+Bug fixes. 
+
+The version number of a connection would not be updated if the first
+packet is not a V2 packet. This doesn't break anything except that
+certificates will not be parsed in that connection.
+
+Forgot to place a break statement in a switch while parsing certain
+handshake packet types. Symptoms were that the sniffer would try to
+parse more than it should and print out garbage values. Fortunately,
+the packet that triggers this was not a common one.
+
+Version 1.2
+-----------
+
+Main changes in this version is that support for parsing SSLV2 packets
+has been implemented. It took a lot less time than I thought it would
+because the rewritten code base makes it easy to add this in and also
+because sslv2 is a much simpler protocol to parse than TLS.
+
+It seems that SSLV2 doesn't offer support for certificate chains.
+
+I removed a couple of structs from the sslsniffer.h because I forgot
+that C doesn't guarantee how structs are laid out in memory and hence
+I shouldn't be relying on structs to typecast network data for pointer
+access.
+
+
+Version 1.1
+-----------
+
+I totally rewrote the entire sslsniffer so that it handles fragmented
+packets in a cleaner fashion. The entire structure is changed and I'm
+much happier with the current incarnation now. It's also a lot more
+flexible and I plan to add support for SSLV2 very soon. I've already
+written that part but it's under the old style and I want to rewrite
+it as well.
+
+It now handles those multiple handshake packets in one record case
+perfectly (I think!) and also those fragmented packets. The style of
+the code has been changed to make it a lot more readable.
+
+Also, the no connect case where you want to connect directly to the
+server without sending a CONNECT request has been made as a flag
+rather than spinning it off to another program.
+
+
+Version 1.02.
+------------
+
+I was printing out the reverse of session ID for a V3 hello and also
+for the RSA encrypted premaster secret. the function extractParams
+suffered from this problem too. there was a one by off error in these
+same functions
+
+
+Version 1.01 / 1.00 
+------------------- 
+
+This program uses the OpenSSL libraries and Dan Boneh's code for the
+processing of the certificates. Other than that, everything else was
+coded from scratch.
+
+The proxy handles SSLV3/TLS servers only. It deals with the first
+clientHello packet being in SSLV2 format but other than that, no other
+SSLV2 packets are handled. You can typically recognise when the site
+is using SSLV2 when the first byte of the error messages that the
+proxy prints out are -128 or -126. try it on wellsfargo to see.  This
+was developed in RedHat linux 6.1 using glibc 2.1.3-8 and openssl
+0.94. Works best in linux using x86 architecture. On some machines,
+the print outs in hex will appear to have either leading or trailing
+zeros.
+
+Please send all bug reports to me. It would be great if you could
+attach the output when the bug ocurred too. I typically use 'sslproxy
+>! out' and read the out file later because there is usually too much
+output to read at one go.
+
+NOTE: 
+
+I have not ported this to big endian architectures yet, i think it's
+not too hard since all that is needed is to change the function
+threeBytesToInt so that it converts the handshake length field to from
+a three byte number in network byte order to the host byte order.
+
+If the server returns a cipher suite that is unknown, currently my
+proxy doesn't handle it too well. it still works but doesn't parse the
+messages properly.
+
+Occasionally (very rarely), the multiple application data fragments
+aren't handled properly and invalid type errors keeping appearing but
+the proxy should still work properly after that connection.
+
+Netscape enterprise servers were rather flakey on the proxy and i
+added some code so that it works properly. I tested on stronghold
+servers and this proxy works best with those. This is due to the fact
+that enterprise servers place multiple handshake messages within a
+single TLS record while stronghold sends out handshake messages with
+their own TLS record.
+
+The application data and certificate messages might be split up over
+several packets and the code that i have currently handles this fine
+but is rather ugly. Given more time, i would rewrite it so that it's
+cleaner.
