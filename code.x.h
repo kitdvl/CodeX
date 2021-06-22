@@ -37,8 +37,7 @@
 #define SYSTEM_CALLBACK      0xFFFD
 #define SYSTEM_CLEAR         0xFFFC
 #define SYSTEM_AUTHOR        0xFFFB
-#define SYSTEM_AUTHOR        0xFFFA
-#define SYSTEM_MODULENAME    0xFFF9
+#define SYSTEM_MODULENAME    0xFFFA
 
 /// <summary>
 /// MSG HIWORD SYSTEM & SIFR
