@@ -591,3 +591,32 @@ int32_t __hmac(void** h, int8_t* argv, int32_t (*f[])(void*,int32_t,int8_t*,int3
 
 
 #endif
+
+
+
+#if 0
+@sc create WAAS_NODE binpath= "[EXEC] --m service --d WAAS_NODE --s WAAS_NODE --X [code.X.x86.dll] --l [LOG PATH] -- e d2" start= auto
+@sc start WAAS_NODE
+
+@sc stop WAAS_NODE
+@sc delete WAAS_NODE
+#endif
+
+
+
+#if 0
+#!/bin/bash
+
+# cd /lib/systemd/system
+# ln -s /usr/local/node/x32/node.c.service .
+# systemctl status node.c.service
+# systemctl daemon-reload
+# systemctl enable node.c.service
+# systemctl start node.c.service
+
+
+# node.c.service
+HOME=`pwd`
+$HOME/pkg/node.c.$1.out --m console --d WAAS_NODE --s WAAS_NODE --X $HOME/pkg/code.X.$1.so --p $HOME/pkg/$1 --l /usr/local/node/log --e d7
+
+#endif
